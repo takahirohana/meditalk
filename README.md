@@ -22,3 +22,68 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# テーブル設計
+
+## users テーブル
+
+| Column          | Type   | Options     |
+| -------------- -| ------ | ----------- |
+| nickname        | string | null: false |
+| email           | string | null: false |
+| password        | string | null: false |
+| last_name       | string | null: false |
+| first_name      | string | null: false |
+| last_name_kana  | string | null: false |
+| first_name_kana | string | null: false |
+| birthday        | date   | null: false |
+
+### Association
+
+- has_many :room_users
+- has_many :rooms, through: room_users
+- has_many :medical_records
+
+## rooms テーブル
+
+| Column      | Type   | Options     |
+| ----------- | ------ | ----------- |
+| room_name   | string | null: false |
+
+### Association
+
+- has_many :room_users
+- has_many :users, through: room_users
+- has_many :messages
+
+## room_users テーブル
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| room   | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :room
+- belongs_to :user
+
+## medical_records テーブル
+
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| part      | string     | null: false                    |
+| cc        | string     | null: false                    |
+| from_when | string     | null: false                    |
+| where     | string     | null: false                    |
+| situation | string     | null: false                    |
+| PH        | string     | null: false                    |
+| allergies | string     | null: false                    |
+| medicine  | string     | null: false                    |
+| user      | references | null: false, foreign_key: true |
+| room      | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :room
+- belongs_to :user
