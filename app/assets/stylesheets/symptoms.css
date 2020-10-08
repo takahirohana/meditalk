@@ -3,13 +3,13 @@
 }
 
 .side-bar {
-  width: 300px;
+  width: 400px;
   background-color: white;
   height: 100vh;
 }
 
 .chat {
-  width: calc(100vw - 300px);
+  width: calc(100vw - 400px);
   background-color: aqua;
   height: 100vh;
 }
@@ -18,12 +18,47 @@
   background-color: mediumturquoise;
   height: 100px;
   padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+.header-name a{
+  font-size: 16px;
+  color: #FAFAFA;
+  text-decoration: none;
+}
+
+.create-room {
+  font-size: 10px;
+}
+
+.create-room a{
+  color: #FAFAFA;
+  padding: 14px;
+  border: lightblue 1px solid;
+  text-decoration: none;
+}
+
+.side-search {
+  background-color: white;
+  height: 100px;
+  padding: 0 20px;
+}
 .rooms {
   background-color:#FAFAFA;
   height:  calc(100vh - 100px);
   padding: 0 20px;
+}
+
+.room-name {
+  padding: 20px 0;
+
+}
+
+.room-name a{
+  color: darkgray;
+  text-decoration: none;
 }
 
 .chat-header {
@@ -31,9 +66,15 @@
   height: 100px;
   padding: 0 40px;
 }
+
+.chat-name {
+  background-color: #FAFAFA;
+  height: 100px;
+  padding: 0 40px;
+}
 .messages {
   background-color: white;
-  height: calc(100vh - 100px - 90px);
+  height: calc(100vh - 100px - 90px - 100px);
   padding: 46px 40px 0;
 }
 
@@ -42,4 +83,5 @@
   height: 90px;
   padding: 20px 40px;
 }
+
 
