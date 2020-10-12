@@ -1,0 +1,65 @@
+.field-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  flex-direction: column;
+  width: 100%;
+}
+
+.field {
+  padding: 10px;
+}
+
+.sessions-field {
+  width: 380px;
+  height: 48px;
+  font-size: 16px;
+  border: solid gray 1px;
+  padding-left: 15px;
+}
+
+.actions-field {
+  width: 380px;
+  height: 48px;
+  font-size: 16px;
+  border: solid gray 1px;
+}
+
+.sns-form-face {
+  width: 380px;
+  margin: 20px;
+  padding: 10px;
+  border: solid gray 1px;
+  text-align: center;
+  font-size: 22px;
+  background-color: royalblue;
+}
+
+.sns-form-google {
+  width: 380px;
+  margin: 20px;
+  padding: 10px;
+  border: solid gray 1px;
+  text-align: center;
+  font-size: 22px;
+  background-color: tomato;
+}
+.facebook-field {
+  text-decoration: none;
+  color: white;
+}
+
+.google-field {
+  text-decoration: none;
+  color: white;
+}
+
+.registrations-field {
+  width: 380px;
+  height: 48px;
+  font-size: 16px;
+  border: solid gray 1px;
+  padding-left: 15px;
+}
+

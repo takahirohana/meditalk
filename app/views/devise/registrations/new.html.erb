@@ -1,58 +1,66 @@
-<h2>Sign up</h2>
+<%= render "shared/second-header"%>
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field-wrap">
+    <h2>Sign up</h2>
+      <div class="field">
+        <%= f.label :ニックネーム %><br />
+        <%= f.text_field :nickname, autofocus: true,placeholder:"例）イチロウ",class: "registrations-field" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :nickname %><br />
-    <%= f.text_field :nickname, autofocus: true %>
-  </div>
+        <div class="field">
+        <%= f.label :メールアドレス %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"例）abc123@gmail.com",class: "registrations-field" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>
+      <%if @sns_id.present?%>
+        <%= hidden_field_tag :sns_auth, true %>
+      <% else %>
+        <div class="field">
+          <%= f.label :パスワード %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> 文字以上)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password",placeholder:"６文字以上の半角英数字",class: "registrations-field" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
+        <div class="field">
+          <%= f.label :パスワード（確認用） %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"６文字以上の半角英数字",class: "registrations-field" %>
+        </div>
+      <% end %>
 
-  <div class="field">
-    <%= f.label :first_name_kana %><br />
-    <%= f.text_field :first_name_kana %>
-  </div>
+      <div class="field">
+        <%= f.label :お名前（姓） %><br />
+        <%= f.text_field :last_name ,placeholder:"例）山田",class: "registrations-field"%>
+      </div>
 
-  <div class="field">
-    <%= f.label :last_name_kana %><br />
-    <%= f.text_field :last_name_kana %>
-  </div>
+      <div class="field">
+        <%= f.label :お名前（名） %><br />
+        <%= f.text_field :first_name ,placeholder:"例）一郎",class: "registrations-field"%>
+      </div>
 
-  <div class="field">
-    <%= f.label :birthday %><br />
-    <%= f.date_select :birthday, start_year: 1920, end_year: 2019 %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="field">
+        <%= f.label :お名前（セイ） %><br />
+        <%= f.text_field :last_name_kana ,placeholder:"例）ヤマダ",class: "registrations-field"%>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+      <div class="field">
+        <%= f.label :お名前（ナマエ） %><br />
+        <%= f.text_field :first_name_kana ,placeholder:"例）イチロウ",class: "registrations-field"%>
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+      <div class="field">
+        <%= f.label :生年月日 %><br />
+        <%= f.date_select :birthday, start_year: 1920, end_year: 2019 ,class: "registrations-field"%>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+      <div class="actions">
+        <%= f.submit "新規登録" %>
+      </div>
+    </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
