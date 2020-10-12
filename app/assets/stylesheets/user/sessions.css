@@ -63,3 +63,15 @@
   padding-left: 15px;
 }
 
+.signup,.login,.account {
+  font-size: 25px
+}
+
+.edit-field {
+  width: 380px;
+  height: 48px;
+  font-size: 16px;
+  border: solid gray 1px;
+  padding-left: 15px;
+}
+

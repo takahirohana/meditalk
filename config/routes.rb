@@ -4,8 +4,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   get 'symptoms/index'
-  root 'users#index'  
-  resources :users, only: :new
+  root 'symptoms#index'  
+  resources :users, only: [:new, :edit, :update]
 end
 
 #   root to: "symptoms#index"
