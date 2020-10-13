@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'symptoms/index'
   root 'symptoms#index'  
   resources :users, only: [:new, :edit, :update]
+  resources :rooms, only: [:new, :create]
 end
 
 #   root to: "symptoms#index"
