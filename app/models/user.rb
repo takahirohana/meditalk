@@ -6,6 +6,24 @@ class User < ApplicationRecord
 
     has_many :sns_credentials
 
+    NAME_REGEX_KANJI = /\A[ぁ-んァ-ン一-龥]+\z/
+    NAME_REGEX_KANA = /\A[ァ-ン]+\z/
+
+    with_options presence: true do
+      validates :nickname
+      validates :email, uniqueness:true , format: { with: /@.+/ }
+      validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }
+      validates :password, confirmation: true
+      validates :password_confirmation
+      validates :last_name, format: { with: NAME_REGEX_KANJI }
+      validates :first_name, format: { with: NAME_REGEX_KANJI }
+      validates :last_name_kana, format: { with: NAME_REGEX_KANA }
+      validates :first_name_kana, format: { with: NAME_REGEX_KANA }
+      validates :birthday
+    end
+
+  
+
     def self.from_omniauth(auth)
       sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
       user = User.where(email: auth.info.email).first_or_initialize(
