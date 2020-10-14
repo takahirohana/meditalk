@@ -1,0 +1,37 @@
+<%= render "shared/second-header"%>
+
+<div class='chat-room-form'>
+  <div class="chat-new">診察室の作成</div>
+  <%=form_with model: @room, local: true do |f|%>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :診察室名, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.text_field :room_name, class: 'chat__room_name chat-room-form__input', placeholder: '診察室名を入力してください'%>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <label class='chat-room-form__label' for='chat_room_チャットメンバー'>Dr選択</label>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <select name="room[user_ids][]">
+          <option value="">相談したいDrを選択してください</option>
+          <% User.all.where.not(id: current_user.id).each do |user| %>
+              <option value=<%=user.id%>><%= user.nickname %></option>
+          <% end %>
+        </select>
+        <input name="room[user_ids][]" type="hidden" value=<%=current_user.id%>>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'></div>
+      <div class='chat-room-form__field--right'>
+        <%= f.submit class: 'chat-room-form__action-btn'%>
+      </div>
+    </div>
+  <% end %>
+</div>
