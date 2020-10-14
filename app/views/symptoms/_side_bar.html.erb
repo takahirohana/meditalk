@@ -3,7 +3,7 @@
     <%= link_to current_user.nickname, edit_user_path(current_user) %>
   </div>
   <div class="create-room">
-    <a href="rooms/new">診察室の作成</a>
+    <%= link_to "診察室の作成", new_room_path %>
   </div>
 </div>
 
@@ -11,10 +11,9 @@
 </div>
 
 <div class="rooms">
-  <div class="room-name">
-    <a href="#">診察室1</a>
-  </div>
-  <div class="room-name">
-    <a href="#">診察室2</a>
-  </div>
+  <% current_user.rooms.each do |room| %>
+      <div class="room-name">
+        <a href="#"><%= room.room_name %></a>
+      </div>
+  <% end %>
 </div>
