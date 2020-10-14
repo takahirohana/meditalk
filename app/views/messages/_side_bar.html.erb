@@ -13,7 +13,7 @@
 <div class="rooms">
   <% current_user.rooms.each do |room| %>
       <div class="room-name">
-        <a href="#"><%= room.room_name %></a>
+        <%= link_to room.room_name, room_messages_path(room) %>
       </div>
   <% end %>
 </div>
