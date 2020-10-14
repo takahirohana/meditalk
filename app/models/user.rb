@@ -7,6 +7,7 @@ class User < ApplicationRecord
     has_many :sns_credentials
     has_many :room_users
     has_many :rooms, through: :room_users
+    has_many :messages
 
     NAME_REGEX_KANJI = /\A[ぁ-んァ-ン一-龥]+\z/
     NAME_REGEX_KANA = /\A[ァ-ン]+\z/
