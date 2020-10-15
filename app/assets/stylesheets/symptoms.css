@@ -10,7 +10,7 @@
 
 .chat {
   width: calc(100vw - 400px);
-  background-color: aqua;
+  background-color:white;
   height: 100vh;
 }
 
