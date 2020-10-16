@@ -38,6 +38,20 @@
   justify-content: space-between;
 }
 
+.right-medical-record {
+  background-color: white;
+  height: 100px;
+  padding: 0 20px;
+  color: darkgray;
+  display: flex;
+  align-items: center;
+}
+
+.right-side-record {
+  font-size: 30px;
+  padding-left: 30px;
+}
+
 
 .header-name a{
   font-size: 16px;
@@ -60,6 +74,9 @@
   background-color: white;
   height: 100px;
   padding: 0 20px;
+  color: darkgray;
+  display: flex;
+  align-items: center;
 }
 .rooms {
   background-color:#FAFAFA;
