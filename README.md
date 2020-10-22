@@ -72,12 +72,11 @@ Things you may want to cover:
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| part      | string     | null: false                    |
 | cc        | string     | null: false                    |
 | from_when | string     | null: false                    |
 | where     | string     | null: false                    |
 | situation | string     | null: false                    |
-| PH        | string     | null: false                    |
+| ph        | string     | null: false                    |
 | allergies | string     | null: false                    |
 | medicine  | string     | null: false                    |
 | user      | references | null: false, foreign_key: true |
@@ -87,3 +86,11 @@ Things you may want to cover:
 
 - belongs_to :room
 - belongs_to :user
+
+## message テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | string     |                                |
+| user    | references | null: false, foreign_key: true |
+| room    | references | null: false, foreign_key: true |

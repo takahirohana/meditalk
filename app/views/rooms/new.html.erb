@@ -1,11 +1,12 @@
 <%= render "shared/second-header"%>
 
 <div class='chat-room-form'>
-  <div class="chat-new">診察室の作成</div>
+  <div class="chat-new">ご希望のDr名の入力</div>
   <%=form_with model: @room, local: true do |f|%>
+  <%= render 'shared/error_messages', model: f.object %>
     <div class='chat-room-form__field'>
       <div class='chat-room-form__field--left'>
-        <%= f.label :診察室名, class: 'chat-room-form__label'%>
+        <%= f.label :Dr名, class: 'chat-room-form__label'%>
       </div>
       <div class='chat-room-form__field--right'>
         <%= f.text_field :room_name, class: 'chat__room_name chat-room-form__input', placeholder: '診察室名を入力してください'%>
@@ -27,6 +28,7 @@
         <input name="room[user_ids][]" type="hidden" value=<%=current_user.id%>>
       </div>
     </div>
+    
     <div class='chat-room-form__field'>
       <div class='chat-room-form__field--left'></div>
       <div class='chat-room-form__field--right'>

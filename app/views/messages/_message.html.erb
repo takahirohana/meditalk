@@ -1,15 +1,29 @@
 <div class="message">
   <div class="upper-message">
-    <div class="message-user">
+    <% if current_user.id == message.user_id %>
+      <div class="message-user">
+        <%= message.user.nickname%>
+      </div>
+    <% else %>
+      <div class="message-another">
       <%= message.user.nickname%>
-    </div>
+      </div>
+    <% end %>
     <div class="message-date">
       <%= l message.created_at %>
     </div>
   </div>
   <div class="lower-message">
     <div class="message-content">
-      <%= message.content %>
+    <dl class="faq_area">
+    <div>
+      <% if current_user.id == message.user_id %>
+      <dt><%= message.content %></dt>
+      <% else %>
+      <dd><%= message.content %></dd>
+      <% end %>
+    
+  </dl>
     </div>
     <%= image_tag message.image.variant(resize: '200x200'), class: 'message-image' if message.image.attached? %>
   </div>
