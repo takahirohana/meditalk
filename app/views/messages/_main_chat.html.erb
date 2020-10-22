@@ -24,7 +24,7 @@
 </div>
 
 <div class="messages">
-  <%= render partial: 'message', collection: @messages %>
+  <%= render partial: 'message', collection:  @messages%>
 </div>
 <div id="image-list"></div>
 <%= form_with model: [@room, @message], class: 'form', local: true do |f| %>

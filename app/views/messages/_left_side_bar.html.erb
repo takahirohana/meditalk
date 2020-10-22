@@ -7,8 +7,15 @@
   </div>
 </div>
 
-<div class="side-search">
+<div class="side-symptom-create">
+  <div class="symptom-create-btn">
+    <%= link_to "カルテ記入ページ", new_symptom_path %>
+  </div>
+  <div class="create-message">
+    <span class="red">※</span>初診、再診の方は記入お願い致します<span class="red">※</span>
+  </div>
 </div>
+  
 
 <div class="rooms">
   <% current_user.rooms.each do |room| %>

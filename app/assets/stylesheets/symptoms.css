@@ -1,0 +1,43 @@
+.symptom-form__input {
+  width: 600px;
+}
+
+.side-symptom-create {
+  background-color: white;
+  height: 100px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.symptom-create-btn a{
+  color: darkgray;
+  text-decoration: none;
+  border: darkgray solid  1px;
+  padding: 10px;
+}
+
+.create-message {
+  margin-top: 20px;
+  font-size: 10px;
+
+}
+
+.red {
+  color: red;
+}
+
+.detail-item {
+  border: solid 1px darkgray;
+  width: 100px;
+  padding: 5px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.detail-value {
+  color: dimgray;
+  padding: 10px;
+}

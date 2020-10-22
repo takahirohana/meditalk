@@ -69,15 +69,6 @@
   border: lightblue 1px solid;
   text-decoration: none;
 }
-
-.side-search {
-  background-color: white;
-  height: 100px;
-  padding: 0 20px;
-  color: darkgray;
-  display: flex;
-  align-items: center;
-}
 .rooms {
   background-color:#FAFAFA;
   height:  calc(100vh - 100px);
@@ -203,4 +194,64 @@
 
 .hidden {
   display: none;
+}
+
+.faq_area {
+  margin: 0 auto ;
+}
+
+.faq_area div {
+  width: 100%;
+  margin: 0 auto 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq_area dt,
+.faq_area dd {
+  min-width:80px;
+  padding: 10px 15px;
+  color: #fff;
+  border-radius: 80px;
+  background: #0096e5;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.faq_area dt {
+  margin-bottom: 20px;
+  background: turquoise;
+}
+
+.faq_area dt:before {
+  content: "";
+  border: 10px solid transparent;
+  border-right: 20px solid turquoise;
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.faq_area dd {
+  margin-top: 20px;
+  background: #0096e5;
+  margin: 0 0 0 auto;
+}
+
+.faq_area dd:after {
+  content: "";
+  border: 10px solid transparent;
+  border-left: 20px solid #0096e5;
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.message-another {
+  margin: 0 0 0 auto;
 }
