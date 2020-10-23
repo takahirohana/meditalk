@@ -15,16 +15,18 @@
   </div>
   <div class="lower-message">
     <div class="message-content">
-    <dl class="faq_area">
-    <div>
-      <% if current_user.id == message.user_id %>
-      <dt><%= message.content %></dt>
-      <% else %>
-      <dd><%= message.content %></dd>
-      <% end %>
-    
-  </dl>
+      <div class="faq_area">
+        <div>
+          <% if current_user.id == message.user_id %>
+            <dd><%= message.content %></dd>
+          <% else %>
+            <dt><%= message.content %></dt>
+          <% end %>
+        </div>
+      </div>
     </div>
+    <div class="message-image-position">
     <%= image_tag message.image.variant(resize: '200x200'), class: 'message-image' if message.image.attached? %>
+    </div>
   </div>
 </div>

@@ -252,6 +252,10 @@
   transform: translateY(-50%);
 }
 
-.message-another {
+.message-user {
   margin: 0 0 0 auto;
+}
+
+.message-image-position {
+  text-align: right;
 }
