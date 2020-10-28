@@ -18,13 +18,14 @@
   </div>
   <div class="right-name">
     <div class="name-button">
-      <%= link_to "チャットを終了する", room_path(@room), method: :delete %>
+      <%= link_to "終了", room_path(@room), method: :delete %>
     </div>
   </div>
 </div>
-
-<div class="messages">
-  <%= render partial: 'message', collection:  @messages%>
+<div class="scroll">
+  <div class="messages" id="messagesid">
+    <%= render partial: 'message', collection:  @messages%>
+  </div>
 </div>
 <div id="image-list"></div>
 <%= form_with model: [@room, @message], class: 'form', local: true do |f| %>
