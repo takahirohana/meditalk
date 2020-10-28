@@ -73,6 +73,7 @@
   background-color:#FAFAFA;
   height:  calc(100vh - 100px);
   padding: 0 20px;
+  overflow: scroll;
 }
 
 .room-name {
@@ -128,27 +129,32 @@
 .message {
   margin: 10px 0;
 }
-.upper-message {
+.upper-message ,
+.upper-message-b{
   display: flex;
 }
 
-.message-user {
-  font-size: 16px;
-  padding-right: 10px;
-}
 
-.message-date {
+
+.message-date,
+.message-date-b {
   font-size: 12px;
   color: darkgray;
 }
 
-.lower-message {
+.message-date {
+margin: 0 0 0 auto;
+}
+
+.lower-message,
+.lower-message-b {
   margin-top: 10px;
 }
 
-.message-content {
+.message-content,
+.message-content-b {
   font-size: 14px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 .form {
@@ -196,11 +202,13 @@
   display: none;
 }
 
-.faq_area {
+.faq_area,
+.faq_area-b {
   margin: 0 auto ;
 }
 
-.faq_area div {
+.faq_area div,
+.faq_area-b div {
   width: 100%;
   margin: 0 auto 15px;
   display: flex;
@@ -209,22 +217,26 @@
 }
 
 .faq_area dt,
-.faq_area dd {
+.faq_area dd,
+.faq_area-b dt,
+.faq_area-b dd {
   min-width:80px;
   padding: 10px 15px;
   color: #fff;
-  border-radius: 80px;
+  border-radius: 20px;
   background: #0096e5;
   position: relative;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.faq_area dt {
+.faq_area dt,
+.faq_area-b dt {
   margin-bottom: 20px;
   background: turquoise;
 }
 
-.faq_area dt:before {
+.faq_area dt:before,
+.faq_area-b dt:before {
   content: "";
   border: 10px solid transparent;
   border-right: 20px solid turquoise;
@@ -235,13 +247,15 @@
   transform: translateY(-50%);
 }
 
-.faq_area dd {
+.faq_area dd,
+.faq_area-b dd {
   margin-top: 20px;
   background: #0096e5;
   margin: 0 0 0 auto;
 }
 
-.faq_area dd:after {
+.faq_area dd:after,
+.faq_area-b dd:after {
   content: "";
   border: 10px solid transparent;
   border-left: 20px solid #0096e5;
@@ -252,9 +266,7 @@
   transform: translateY(-50%);
 }
 
-.message-user {
-  margin: 0 0 0 auto;
-}
+
 
 .message-image-position {
   text-align: right;
