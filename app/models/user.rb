@@ -8,7 +8,7 @@ class User < ApplicationRecord
     has_many :room_users
     has_many :rooms, through: :room_users
     has_many :messages
-    has_many :symptoms
+    has_one  :symptoms
 
     NAME_REGEX_KANJI = /\A[ぁ-んァ-ン一-龥]+\z/
     NAME_REGEX_KANA = /\A[ァ-ン]+\z/
@@ -24,7 +24,7 @@ class User < ApplicationRecord
       validates :first_name, format: { with: NAME_REGEX_KANJI }
       validates :last_name_kana, format: { with: NAME_REGEX_KANA }
       validates :first_name_kana, format: { with: NAME_REGEX_KANA }
-      validates :birthday
+      validates :age
     end
 
   
