@@ -1,18 +1,18 @@
 <%= render "shared/second-header"%>
 
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= form_for(@user, url: user_registration_path) do |f| %>
+  <%= render "devise/shared/error_messages", resource: @user %>
     <div class="field-wrap">
-    <h2 class="signup">新規登録画面</h2>
+      <h2 class="signup">新規登録画面</h2>
       <div class="field">
         <%= f.label :ニックネーム %><br />
         <%= f.text_field :nickname, autofocus: true,placeholder:"例）イチロウ",class: "registrations-field" %>
       </div>
 
-        <div class="field">
-        <%= f.label :メールアドレス %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"例）abc123@gmail.com",class: "registrations-field" %>
+      <div class="field">
+          <%= f.label :メールアドレス %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"例）abc123@gmail.com",class: "registrations-field" %>
       </div>
 
       <%if @sns_id.present?%>
@@ -25,7 +25,6 @@
           <% end %><br />
           <%= f.password_field :password, autocomplete: "new-password",placeholder:"６文字以上の半角英数字",class: "registrations-field" %>
         </div>
-
         <div class="field">
           <%= f.label :パスワード（確認用） %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder:"６文字以上の半角英数字",class: "registrations-field" %>
@@ -60,7 +59,7 @@
 
 
       <div class="actions">
-        <%= f.submit "新規登録" , class: "actions-field"%>
+        <%= f.submit "次へ" , class: "actions-field"%>
       </div>
     </div>
 <% end %>

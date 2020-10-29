@@ -5,20 +5,48 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    @user = User.new
+  end
 
   # POST /resource
   def create
+    @user = User.new(sign_up_params)
+      unless @user.valid?
+        render :new and return
+      end
+      session["devise.regist_data"] = {user: @user.attributes}
+      session["devise.regist_data"][:user]["password"] = params[:user][:password]
+      @symptom = @user.build_symptom
     if params[:sns_auth] == 'true'
       pass = Devise.friendly_token
       params[:user][:password] = pass
       params[:user][:password_confirmation] = pass
     end
-    super
+    
+    render :new_symptom
+    # super
   end
 
+  def create_symptom
+    @user = User.new(session["devise.regist_data"]["user"])
+    @symptom = Symptom.new(symptom_params)
+      unless @symptom.valid?
+        render :new_symptom
+      else
+        @user.build_symptom(@symptom.attributes)
+        @user.save
+        session["devise.regist_data"]["user"].clear
+        sign_in(:user, @user)
+        redirect_to root_path
+      end
+  end
+
+  protected
+
+  def symptom_params
+    params.require(:symptom).permit(:cc, :from_when, :where, :situation, :ph, :allergies, :medicine)
+  end
   # GET /resource/edit
   # def edit
   #   super

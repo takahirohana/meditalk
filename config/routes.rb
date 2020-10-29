@@ -3,6 +3,10 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
   }
+  devise_scope :user do
+    get'symptoms', to: 'users/registrations#new_symptom'
+    post 'symptoms', to: 'users/registrations#create_symptom'
+  end
   # get 'symptoms/index'
   root to:'rooms#index'  
   resources :users, only: [:new, :edit, :update]

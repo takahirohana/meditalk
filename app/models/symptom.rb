@@ -1,5 +1,5 @@
 class Symptom < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional:true
   has_many :messages
 
   with_options presence: true do
