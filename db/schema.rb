@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_18_140144) do
+ActiveRecord::Schema.define(version: 2020_10_30_085911) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,25 +33,36 @@ ActiveRecord::Schema.define(version: 2020_10_18_140144) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "doctors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "area", null: false
+    t.string "speciality", null: false
+    t.string "word", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
     t.bigint "room_id"
     t.bigint "user_id"
-    t.bigint "symptom_id"
+    t.bigint "doctor_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["doctor_id"], name: "index_messages_on_doctor_id"
     t.index ["room_id"], name: "index_messages_on_room_id"
-    t.index ["symptom_id"], name: "index_messages_on_symptom_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "room_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "room_user_doctors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "room_id"
     t.bigint "user_id"
+    t.bigint "doctor_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["room_id"], name: "index_room_users_on_room_id"
-    t.index ["user_id"], name: "index_room_users_on_user_id"
+    t.index ["doctor_id"], name: "index_room_user_doctors_on_doctor_id"
+    t.index ["room_id"], name: "index_room_user_doctors_on_room_id"
+    t.index ["user_id"], name: "index_room_user_doctors_on_user_id"
   end
 
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -102,11 +113,12 @@ ActiveRecord::Schema.define(version: 2020_10_18_140144) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "messages", "doctors"
   add_foreign_key "messages", "rooms"
-  add_foreign_key "messages", "symptoms"
   add_foreign_key "messages", "users"
-  add_foreign_key "room_users", "rooms"
-  add_foreign_key "room_users", "users"
+  add_foreign_key "room_user_doctors", "doctors"
+  add_foreign_key "room_user_doctors", "rooms"
+  add_foreign_key "room_user_doctors", "users"
   add_foreign_key "sns_credentials", "users"
   add_foreign_key "symptoms", "users"
 end

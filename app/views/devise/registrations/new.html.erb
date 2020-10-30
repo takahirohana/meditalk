@@ -2,7 +2,9 @@
 
 
 <%= form_for(@user, url: user_registration_path) do |f| %>
-  <%= render "devise/shared/error_messages", resource: @user %>
+  <%#問題なかったら消す%>
+  <%#= render "devise/shared/error_messages", resource: @user %>
+  <%= render 'shared/error_messages', model: f.object %>
     <div class="field-wrap">
       <h2 class="signup">新規登録画面</h2>
       <div class="field">
