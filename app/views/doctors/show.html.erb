@@ -1,2 +1,40 @@
-<h1>Doctors#show</h1>
-<p>Find me in app/views/doctors/show.html.erb</p>
+<%= render "shared/second-header"%>
+<div class="doctor-profire">
+  <div class="doctor-header">
+    <div class="doctor-image">
+      <%= image_tag "doctor.png", class:"doctor-img"%>
+    </div>
+    <div class="doctor-info">
+      <div class="doctor-star">
+        <%= image_tag "ecalic024_001.png", class:"doctor-star-img"%>
+      </div>
+      <div class="doctor-name">
+        <%= @doctor.name%>Dr
+      </div>
+      <div class="doctor-review">
+        <%=link_to "口コミを見る", class:"review-btn"%>
+      </div>
+    </div>
+  </div>
+  <div class="info-list">
+    <ul>
+      <p class="info-title">
+      [ 地域 ]
+      </p>
+      <li><%= @doctor.area%></li>
+      <p class="info-title">
+      [ 専門分野 得意領域]
+      </p>
+      <li><%= @doctor.speciality%></li>
+      <p class="info-title">
+      [ ひと言 ]
+      </p>
+      <li><%= @doctor.word%></li>
+    </ul>
+  </div>
+  <div class="doctor-talk">
+    <div class="doctor-talk-btn">
+    <%= link_to "診察してもらう",new_room_path , class: "dr-btn" %>
+    </div>
+  </div>
+</div>

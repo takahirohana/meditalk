@@ -14,5 +14,5 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
   end
   resources :symptoms, only: [:new, :create] 
-  resources :doctors, only: [:index, :new, :show, :edit]
+  resources :doctors, only: [:index, :new, :show, :edit, :create]
 end

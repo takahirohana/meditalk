@@ -1,2 +1,26 @@
-<h1>Doctors#index</h1>
-<p>Find me in app/views/doctors/index.html.erb</p>
+<%= render "shared/second-header"%>
+<main class="main">
+  <div class="inner">
+    <h1 class="page-heading">Dr一覧</h1>
+      <div class="card__wrapper">
+      <% @doctors.each do |doctor| %>
+            <%#= link_to item_path(item.id), method: :get do %>
+            
+              <%#= image_tag item.image, class: "item-img" %>
+        <div class="card">
+          <%#img src="" alt="画像なし" class="card__img" /%>
+          <%= image_tag "doctor.png", class:"card__imhg"%>
+            <div class="card__body">
+              <h3 class="card__title">
+                <%= link_to doctor.name, doctor_path(doctor.id)  %>
+                <span>Dr</span>
+              </h3>
+              <%= link_to "プロフィールを見る", doctor_path(doctor.id)  %>
+              <p><%= image_tag "ecalic024_001.png", class:"doctor-star-img"%></p>
+            </div>
+        </div>
+      <% end %>
+      </div>
+  </div>
+</main>
+      
