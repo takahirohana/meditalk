@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     get'symptoms', to: 'users/registrations#new_symptom'
     post 'symptoms', to: 'users/registrations#create_symptom'
   end
-    root to:'rooms#index'  
+    root to:'doctors#index'  
   resources :users, only: [:new, :edit, :update]
-  resources :rooms, only: [:new, :create, :destroy] do
+  resources :rooms, only: [:index,:new, :create, :destroy] do
     resources :messages, only: [:index, :create]
   end
   resources :symptoms, only: [:new, :create] 
