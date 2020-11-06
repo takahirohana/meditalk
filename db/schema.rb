@@ -54,21 +54,14 @@ ActiveRecord::Schema.define(version: 2020_10_30_085911) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "room_user_doctors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "room_id"
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "room_name", null: false
     t.bigint "user_id"
     t.bigint "doctor_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["doctor_id"], name: "index_room_user_doctors_on_doctor_id"
-    t.index ["room_id"], name: "index_room_user_doctors_on_room_id"
-    t.index ["user_id"], name: "index_room_user_doctors_on_user_id"
-  end
-
-  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "room_name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.index ["doctor_id"], name: "index_rooms_on_doctor_id"
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -116,9 +109,8 @@ ActiveRecord::Schema.define(version: 2020_10_30_085911) do
   add_foreign_key "messages", "doctors"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
-  add_foreign_key "room_user_doctors", "doctors"
-  add_foreign_key "room_user_doctors", "rooms"
-  add_foreign_key "room_user_doctors", "users"
+  add_foreign_key "rooms", "doctors"
+  add_foreign_key "rooms", "users"
   add_foreign_key "sns_credentials", "users"
   add_foreign_key "symptoms", "users"
 end

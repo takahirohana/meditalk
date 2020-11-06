@@ -5,8 +5,7 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
     has_many :sns_credentials
-    has_many :room_user_doctors
-    has_many :rooms, through: :room_user_doctors
+    has_many :rooms
     has_many :messages
     has_one  :symptom
 

@@ -1,6 +1,6 @@
 class DoctorsController < ApplicationController
   def index
-      @doctors = Doctor.all
+    @doctors = Doctor.all
   end
 
   def new
@@ -10,7 +10,7 @@ class DoctorsController < ApplicationController
   def create
     @doctor = Doctor.new(doctor_params)
     if @doctor.save
-      render :index
+      redirect_to doctors_path
     else
       render :new
     end

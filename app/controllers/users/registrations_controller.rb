@@ -12,18 +12,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     @user = User.new(sign_up_params)
-      unless @user.valid?
-        render :new and return
-      end
       session["devise.regist_data"] = {user: @user.attributes}
       session["devise.regist_data"][:user]["password"] = params[:user][:password]
       @symptom = @user.build_symptom
     if params[:sns_auth] == 'true'
       pass = Devise.friendly_token
-      params[:user][:password] = pass
-      params[:user][:password_confirmation] = pass
+      @user.password = pass
+      @user.password_confirmation = pass
     end
-    
+    unless @user.valid?
+      render :new and return
+    end
     render :new_symptom
     # super
   end
