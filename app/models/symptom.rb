@@ -1,6 +1,5 @@
 class Symptom < ApplicationRecord
-  belongs_to :user
-  has_many :messages
+  belongs_to :user, optional:true
 
   with_options presence: true do
     validates :cc

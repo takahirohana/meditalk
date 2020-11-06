@@ -26,32 +26,32 @@
 <%#= if @room.room_users.first.id == current_user.id%>
       <div>
         <div>
-          <div class="detail-item">主訴</div>
-          <div class="detail-value"><%= @symptom.cc %></div>
+          <div class="detail-item">主訴</%div>
+          <div class="detail-value"><%#= @symptom.cc %></%div>
         </div>
         <div>
           <div class="detail-item">いつから?</div>
-          <div class="detail-value"><%= @symptom.from_when  %></div>
+          <div class="detail-value"><%#= @symptom.from_when  %></div>
         </div>
         <div>
           <div class="detail-item">どこで</div>
-          <div class="detail-value"><%= @symptom.where  %></div>
+          <div class="detail-value"><%#= @symptom.where  %></div>
         </div>
         <div>
           <div class="detail-item">状況</div>
-          <div class="detail-value"><%= @symptom.situation  %></div>
+          <div class="detail-value"><%#= @symptom.situation  %></div>
         </div>
         <div>
           <div class="detail-item">既往歴</div>
-          <div class="detail-value"><%= @symptom.ph  %></div>
+          <div class="detail-value"><%#= @symptom.ph  %></div>
         </div>
         <div>
           <div class="detail-item">アレルギー</div>
-          <div class="detail-value"><%= @symptom.allergies  %></div>
+          <div class="detail-value"><%#= @symptom.allergies  %></div>
         </div>
         <div>
           <div class="detail-item">お薬</div>
-          <div class="detail-value"><%= @symptom.medicine  %></div>
+          <div class="detail-value"><%#= @symptom.medicine  %></div>
         </div>
         <%# end %>
     </div>

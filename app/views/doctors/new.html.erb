@@ -1,0 +1,45 @@
+<h1>Doctors#new</h1>
+<p>Find me in app/views/doctors/new.html.erb</p>
+<%= render "shared/second-header"%>
+
+<div class='symptoms-form'>
+  <div class="symptoms-new">Dr情報の作成</div>
+  <%=form_with model: @doctor, local: true do |f|%>
+
+  <%= render 'shared/error_messages', model: f.object %>
+  <%#= render "devise/shared/error_messages", resource: @symptom %>
+
+    <div class='symptoms-room-form__field'>
+      <div class='symptom-room-form__field--left'>
+        <%= f.label :ドクターネーム , class: 'symptom-room-form__label'%>
+      </div>
+      <div class='symptom-room-form__field--right'>
+        <%= f.text_field :name, class: 'symptom__room_name symptom-form__input', placeholder: '例)田中 太郎'%>
+      </div>
+      <div class='symptom-room-form__field--left'>
+        <%= f.label :地域, class: 'symptom-room-form__label'%>
+      </div>
+      <div class='symptom-form__field--right'>
+        <%= f.text_field :area, class: 'symptom__room_name symptom-form__input', placeholder: '例）東京都 渋谷区'%>
+      </div>
+      <div class='symptom-room-form__field--left'>
+        <%= f.label :専門, class: 'symptom-room-form__label'%>
+      </div>
+      <div class='symptom-form__field--right'>
+        <%= f.text_field :speciality, class: 'symptom__room_name symptom-form__input', placeholder: '例）膝部 肩 スポーツ障害'%>
+      </div>
+      <div class='symptom-room-form__field--left'>
+        <%= f.label :一言, class: 'symptom-room-form__label'%>
+      </div>
+      <div class='symptom-form__field--right'>
+        <%= f.text_field :word, class: 'symptom__room_name symptom-form__input', placeholder: '例）患者さん目線で治療にあたります。'%>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'></div>
+      <div class='chat-room-form__field--right'>
+        <%= f.submit "登録",class: 'chat-room-form__action-btn'%>
+      </div>
+    </div>
+  <% end %>
+</div>

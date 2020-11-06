@@ -36,13 +36,13 @@ Things you may want to cover:
 | first_name      | string | null: false |
 | last_name_kana  | string | null: false |
 | first_name_kana | string | null: false |
-| birthday        | date   | null: false |
+| age             | string   | null: false |
 
 ### Association
 
 - has_many :room_users
 - has_many :rooms, through: room_users
-- has_many :medical_records
+- has_one :symptoms
 
 ## rooms テーブル
 

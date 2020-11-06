@@ -1,6 +1,6 @@
 class Room < ApplicationRecord
-  has_many :room_users
-  has_many :users, through: :room_users, dependent: :destroy
+  belongs_to :user, dependent: :destroy
+  belongs_to :doctor, dependent: :destroy
   has_many :messages, dependent: :destroy
 
   validates :room_name, presence: true
