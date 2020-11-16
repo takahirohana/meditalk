@@ -1,0 +1,34 @@
+<p class="is-size-4 mb-3">口コミを書く</p>
+
+<% if rating.errors.any? %>
+  <div class="notification is-danger">
+    <h2><%= rating.errors.count %>件のエラーがあります。</h2>
+    <ul>
+      <% rating.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="rating-box mt-3">
+  <%= form_with model: rating, url: doctor_ratings_path(doctor), local: true do |f| %>
+    <div class="main-rating">
+      <div class="ratings mb-3">
+        <span class="fa fa-star-o" id="star"></span>
+        <span class="fa fa-star-o" id="star"></span>
+        <span class="fa fa-star-o" id="star"></span>
+        <span class="fa fa-star-o" id="star"></span>
+        <span class="fa fa-star-o" id="star"></span>
+      </div>
+      <div class="ml-3 rating-value-display"><span id="rating-value-display">0</span>/5</div>
+    </div>
+    <%= f.hidden_field :doctor_id, value: doctor.id %>
+    <%= f.hidden_field :score, id: "rating-value"%>
+    <%= f.text_field :content, type: "textarea" ,class:"textarea" %>
+    
+    <p>
+    <%= f.submit "保存", class: "button mt-3" %>
+    <%= link_to "口コミを見る", doctor_ratings_path(doctor), class: "button light ml-3 mt-3" %>
+    </p>
+  <% end %>
+</div>

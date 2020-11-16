@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
     @message = Message.new
     @room = Room.find(params[:room_id])
     @messages = @room.messages.includes(:user)
+    @symptom = @room.user.symptom
     # @symptom = Symptom.find(params[:symptom_id])
   end
 

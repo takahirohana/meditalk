@@ -11,13 +11,31 @@
           <%#img src="" alt="画像なし" class="card__img" /%>
           <%= image_tag "doctor.png", class:"card__imhg"%>
             <div class="card__body">
-              <h3 class="card__title">
+              <div class="card__title">
                 <%= link_to doctor.name, doctor_path(doctor.id)  %>
                 <span>Dr</span>
-              </h3>
+              </div>
               <%= link_to "プロフィールを見る", doctor_path(doctor.id)  %>
-              <p><%= image_tag "ecalic024_001.png", class:"doctor-star-img"%></p>
+              <div class="card-content">
+                <div class="content average-score">
+                  <div class="star-rating mb-2">
+                    <div class="star-rating-front" style="width: <%= doctor.rating_score_percentage %>%">★★★★★</div>
+                    <div class="star-rating-back">★★★★★</div>
+                  </div>
+                  <div class="average-score-display ml-3 pt-2">
+                    <%= doctor.avg_score %>点 (<% doctor.ratings.count %>件の口コミ)
+                  </div>
+                </div>
+              </div>
             </div>
+            <footer class="card-footer">
+              <%= link_to doctor_ratings_path(doctor), class: "button card-footer-item" do %>
+                口コミを見る
+              <% end %>
+              <%= link_to doctor_path(doctor), class: "button card-footer-item" do %>
+                口コミを書く
+              <% end %>
+            </footer>
         </div>
       <% end %>
       </div>

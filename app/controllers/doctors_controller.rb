@@ -1,4 +1,5 @@
 class DoctorsController < ApplicationController
+  before_action :authenticate_user!, only: [:show]
   def index
     @doctors = Doctor.all
   end
@@ -18,6 +19,7 @@ class DoctorsController < ApplicationController
 
   def show
     @doctor = Doctor.find(params[:id])
+    @rating = Rating.new
   end
 
   def edit
