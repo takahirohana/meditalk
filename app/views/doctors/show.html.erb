@@ -5,14 +5,20 @@
       <%= image_tag "doctor.png", class:"doctor-img"%>
     </div>
     <div class="doctor-info">
-      <div class="doctor-star">
-        <%= image_tag "ecalic024_001.png", class:"doctor-star-img"%>
+      <div class="content average-socre">
+        <div class="star-rating mb-2">
+          <div class="star-rating-front" style="width: <%= @doctor.rating_score_percentage %>%">★★★★★</div>
+          <div class="star-rating-back">★★★★★</div>
+        </div>
+        <div class="average-score-display ml-3 pt-2">
+          <%= @doctor.avg_score %>点 (<%= @doctor.ratings.count %>件のレビュー)
+        </div>
       </div>
       <div class="doctor-name">
         <%= @doctor.name%>Dr
       </div>
       <div class="doctor-review">
-        <%=link_to "口コミを見る", class:"review-btn"%>
+        <%= render 'ratings/form', rating: @rating, doctor: @doctor%>
       </div>
     </div>
   </div>
@@ -34,7 +40,7 @@
   </div>
   <div class="doctor-talk">
     <div class="doctor-talk-btn">
-    <%= link_to "診察してもらう",new_room_path , class: "dr-btn" %>
+    <%= link_to "診察してもらう",rooms_path , class: "dr-btn" %>
     </div>
   </div>
 </div>

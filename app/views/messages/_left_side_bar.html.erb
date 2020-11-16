@@ -9,18 +9,27 @@
 
 <div class="side-symptom-create">
   <div class="symptom-create-btn">
-    <%= link_to "カルテ記入ページ", new_symptom_path %>
+    <%= link_to "カルテ編集", new_symptom_path %>
   </div>
   <div class="create-message">
-    <span class="red">※</span>初診、再診の方は記入お願い致します<span class="red">※</span>
+    <span class="red">※</span>症状の変更時はご記入ください。<span class="red">※</span>
   </div>
 </div>
   
 
 <div class="rooms">
+<%#if current_user? もしくはuser_sign_up?%>
   <% current_user.rooms.each do |room| %>
       <div class="room-name">
         <%= link_to room.room_name, room_messages_path(room) %>
       </div>
   <% end %>
 </div>
+
+<%#if current.doctor?もしくはdoctor_sign_up?%>
+<%# current_user.rooms.each do |room| %>
+      <div class="room-name">
+      ここにドクターの部屋を表示条件分枝させる。
+        <%#= link_to room.room_name, room_messages_path(room) %>
+      </div>
+  <%# end %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
@@ -8,11 +9,13 @@ Rails.application.routes.draw do
     get'symptoms', to: 'users/registrations#new_symptom'
     post 'symptoms', to: 'users/registrations#create_symptom'
   end
-    root to:'rooms#index'  
+    root to:'doctors#index'  
   resources :users, only: [:new, :edit, :update]
-  resources :rooms, only: [:new, :create, :destroy] do
+  resources :rooms, only: [:index,:new, :create, :destroy] do
     resources :messages, only: [:index, :create]
   end
   resources :symptoms, only: [:new, :create] 
-  resources :doctors, only: [:index, :new, :show, :edit, :create]
+  resources :doctors, only: [:index, :new, :show, :edit, :create] do
+    resources :ratings, only: [:index, :create]
+  end
 end

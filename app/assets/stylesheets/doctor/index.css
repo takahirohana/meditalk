@@ -14,11 +14,43 @@
 }
 .card {
   width: calc((100% -100px) / 2);
-  text-align: center;
+  /* text-align: center; */
   margin-bottom: 40px;
+}
+
+.card a {
+  text-decoration: none;
 }
 
 .card__img {
   margin-bottom:20px;
+}
+
+.star-rating {
+  position: relative;
+  width: 5em;
+  height: 1.5em;
+  font-size: 25px;
+}
+
+.star-rating-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  color: #fc3;
+}
+
+.star-rating-back {
+  color: #ccc;
+}
+
+.average-score {
+  display: flex;
+  flex-direction: column;
+}
+
+.average-score-display {
+  font-size: 16px;
 }
 
