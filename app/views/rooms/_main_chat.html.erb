@@ -12,19 +12,26 @@
 
 <div class="chat-name">
   <div class="left-name">
+  <% if user_signed_in? %>
     <div class="name-title">
-      <%#= @room.room_name %>
+      <%= @doctor.name %>Drとのチャットルーム
     </div>
+  <% elsif doctor_signed_in? %>
+    <div class="name-title">
+      <%= @user.nickname %>さんとのチャットルーム
+    </div>
+  <% end%>
   </div>
   <div class="right-name">
     <div class="name-button">
-      <%= link_to "終了", room_path(@room), method: :delete %>
+      <%= link_to "終了", root_path%>
     </div>
   </div>
 </div>
 <div class="scroll">
   <div class="messages" id="messagesid">
     <%#= render partial: 'message', collection:  @messages%>
+    <%= render "message" %>
   </div>
 </div>
 <div id="image-list"></div>
@@ -38,13 +45,3 @@
   </div>
   <%= f.submit '送信', class: 'form-submit' %>
 <% end %>
-<%# <div class="form">
-  <div class="form-input">
-    <input class="form-message" placeholder= "メッセージを入力してください">
-    <label class="form-image">
-      <span class="image-file">画像</span>
-      <input type="file" class="hidden">
-    </label>
-  </div>
-  <input class="form-submit" type="submit" value="送信">
-</div> %>

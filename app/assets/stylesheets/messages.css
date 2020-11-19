@@ -77,7 +77,10 @@
 }
 
 .room-name {
-  padding: 20px 0;
+  color: darkgray;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 20px;
 
 }
 

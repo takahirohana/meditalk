@@ -1,0 +1,93 @@
+<%= render "shared/second-header"%>
+<!--Userでログインしてたら-->
+<% if user_signed_in? %>
+  <div class="page-heading">
+    <div class="header-btn-1">
+      ~<%= current_user.nickname %>がログインしてます~
+    </div>
+    <div class="header-btn-2">
+      <%= link_to "ログアウト", destroy_user_session_path ,:method => :delete %>
+    </div>
+  </div>
+  <h1 class="top-header">Dr一覧</h1>
+  <div class="card__wrapper">
+    <% @doctors.each do |doctor| %>
+        <div class="card">
+          <%#img src="" alt="画像なし" class="card__img" /%>
+          <%= image_tag "doctor.png", class:"card__imhg"%>
+            <div class="card__body">
+              <div class="card__title">
+                <%= link_to doctor.name, doctor_path(doctor.id)  %>
+                <span>Dr</span>
+              </div>
+              <%= link_to "プロフィールを見る", doctor_path(doctor.id)  %>
+              <div class="card-content">
+                <div class="content average-score">
+                  <div class="star-rating mb-2">
+                    <div class="star-rating-front" style="width: <%= doctor.rating_score_percentage %>%">★★★★★</div>
+                    <div class="star-rating-back">★★★★★</div>
+                  </div>
+                  <div class="average-score-display ml-3 pt-2">
+                    <%= doctor.avg_score %>点 (<%= doctor.ratings.count %>件の口コミ)
+                  </div>
+                </div>
+              </div>
+            </div>
+            <footer class="card-footer">
+              <%= link_to doctor_ratings_path(doctor), class: "button card-footer-item" do %>
+                口コミを見る
+              <% end %>
+              <%= link_to doctor_path(doctor), class: "button card-footer-item" do %>
+                口コミを書く
+              <% end %>
+            </footer>
+    
+      <!-- もしチャットルームがあったらそのチャットページへ。なければ新たなチャットルームを作成 -->
+        <% if @doctor_ids.include?(doctor.id) %>
+          <%= link_to "チャットへ", room_path(current_user.rooms.find_by(doctor_id: doctor.id)) %>
+        <% else %>
+          <%= form_for Room.new do |f| %>
+            <%= f.hidden_field :doctor_id, :value => doctor.id %>
+            <%= f.submit %>
+          <% end %>
+        <% end %>
+        </div>
+    <% end %>
+  </div>
+  
+
+<!--Doctorでログインしてたら-->
+<% elsif doctor_signed_in? %>
+  
+  <div class="page-heading">
+    <div class="header-btn-1">
+  ~<%= current_doctor.name %>Drがログインしてます~
+  </div>
+    <div class="header-btn-2">
+  <%= link_to "ログアウト", destroy_doctor_session_path , :method => :delete %>
+  <br>
+  </div>
+  </div>
+  <h2 class="top-header">ユーザー一覧</h2>
+  <% @users.each do |user| %>
+    <%= user.nickname %>
+    <!--もしチャットルームがあったらそのチャットページへ。なければ新たなチャットルームを作成-->
+    <% if @user_ids.include?(user.id) %>
+      <br>
+      <%= link_to "チャットへ", room_path(current_doctor.rooms.find_by(user_id: user.id)) %><br>
+    <% else %>
+      <%= form_for Room.new do |f| %>
+        <%= f.hidden_field :user_id, :value => user.id %>
+        <%= f.submit "新しいチャットを作る"%>
+      <% end %>
+    <% end %>
+  <% end %>
+<!--ログインしてなかったら-->
+<% else %>
+    <h3>ユーザー</h3>
+    <%= link_to "ログイン", new_user_session_path %>
+    <%= link_to "新規登録", new_user_registration_path %>
+    <h3>ドクター</h3>
+    <%= link_to "ログイン", new_doctor_session_path %>
+    <%= link_to "新規登録", new_doctor_registration_path %>
+<% end %>

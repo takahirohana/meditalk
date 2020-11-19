@@ -1,0 +1,36 @@
+<div class="side-bar-header">
+  <div class="header-name">
+    ああ
+  </div>
+  <div class="create-room">
+    
+  </div>
+</div>
+
+<div class="side-symptom-create">
+  <div class="symptom-create-btn">
+    <%= link_to "カルテ編集", new_symptom_path %>
+  </div>
+  <div class="create-message">
+    <span class="red">※</span>症状の変更時はご記入ください。<span class="red">※</span>
+  </div>
+</div>
+  
+
+<div class="rooms">
+  <% if user_signed_in? %>
+    <div class="room-name">
+        <%= current_user.nickname %>
+    </div>
+    <div class="room-name">
+      ~ログイン中~
+    </div>
+  <% elsif doctor_signed_in? %>
+    <div class="room-name">
+      <%= current_doctor.name %>Dr
+    </div>
+    <div class="room-name">
+      ~ログイン中~
+    </div>
+  <% end%>
+</div>

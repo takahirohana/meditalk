@@ -3,7 +3,7 @@
     
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field-wrap">
-    <h2 class="login">ログイン画面</h2>
+    <h2 class="login">ユーザー用ログイン画面</h2>
       <div class="field">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレス", class: "sessions-field"%>
       </div>
@@ -33,5 +33,14 @@
 
 
     <%= render "devise/shared/links" %>
+  </div>
+  <div class="field-wrap">
+    <h2 class="doctor-info">Drはこちら</h2>
+    <div class="dotor-links">
+      <%= link_to 'Dr用ログイン' ,new_doctor_session_path%>
+    </div>
+    <div class="dotor-links">
+      <%= link_to 'Dr用新規登録' ,new_doctor_registration_path%>
+    </div>
   </div>
 <% end %>

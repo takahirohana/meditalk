@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
     has_many :sns_credentials
     has_many :rooms
-    has_many :messages
+    # has_many :messages
     has_one  :symptom
     has_many :ratings, dependent: :destroy
 
