@@ -1,4 +1,5 @@
 window.onload = function() {
+  if (document.querySelector(".ratings")) {
   // class = "ratings"の子要素を取得
   const stars = document.querySelector(".ratings").children;
   // id = "rating-value"の要素を取得
@@ -49,5 +50,5 @@ window.onload = function() {
       }
     })
   }
-
+  }
 };
