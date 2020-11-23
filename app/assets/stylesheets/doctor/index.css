@@ -70,3 +70,25 @@
   font-size: 16px;
 }
 
+.symptom-button {
+  height: 60px;
+  margin: 30px 0 0 25px;
+  
+  
+}
+.symptom-btn {
+  padding: 15px 30px;
+  font-size: 20px;
+  background-color:mediumturquoise;
+  border: solid 1px;
+  color: white;
+}
+
+.new-symptom-btn {
+  padding: 15px 30px;
+  font-size: 20px;
+  background-color: #0096e5;
+  border: solid 1px;
+  color: white;
+  border-radius: 80%;
+}
