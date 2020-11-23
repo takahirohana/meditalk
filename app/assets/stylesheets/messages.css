@@ -27,6 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
 }
 
 .right-side-bar-header {
@@ -61,6 +62,7 @@
 
 .create-room {
   font-size: 10px;
+  margin-left: 55px;
 }
 
 .create-room a{

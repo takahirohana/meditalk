@@ -1,9 +1,6 @@
 
 <% if user_signed_in? %>
 <div class="side-bar-header">
-  <div class="header-name">
-    
-  </div>
   <div class="create-room">
     <%= link_to "ユーザ情報編集", edit_user_registration_path %>
   </div>
@@ -24,8 +21,8 @@
         <%= current_user.nickname %>
     </div>
     <div class="room-name">
-    <% if @doctor.avatar.attached? %>
-      <%= image_tag "no-image.png", size: '200x200' %>
+    <% if @user.avatar.attached? %>
+      <%= image_tag @user.avatar, size: '200x200' %>
     <% else %>
       <%= image_tag "no-image.png", size: '200x200'%>
     <% end %>
@@ -35,13 +32,8 @@
     </div>
   <% elsif doctor_signed_in? %>
   <div class="side-bar-header">
-  <div class="header-name">
-     良い
+  
   </div>
-  <div class="create-room">
-    
-  </div>
-</div>
   <div class="side-symptom-create">
     <div class="symptom-create-btn">
       <%= link_to "Dr情報編集", edit_doctor_registration_path %>
