@@ -7,6 +7,7 @@ class Doctor < ApplicationRecord
     has_many :rooms
     # has_many :messages
     has_many :ratings, dependent: :destroy
+    has_one_attached :avatar
 
     validates :name, :area, :speciality, :word, presence: true
 
