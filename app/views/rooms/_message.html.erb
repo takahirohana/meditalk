@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+<% if doctor_signed_in? %>
   <div class="chat-field">
     <% @messages.each do |m| %>
       <!-- メッセージがUserによるものだったら -->
@@ -51,7 +51,7 @@
     <% end %>
   </div>
 
-<% elsif doctor_signed_in?%>
+<% elsif user_signed_in?%>
   <div class="chat-field">
     <% @messages.each do |m| %>
       <!-- メッセージがUserによるものだったら -->

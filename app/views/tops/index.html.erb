@@ -52,14 +52,16 @@
             </footer>
     
       <!-- もしチャットルームがあったらそのチャットページへ。なければ新たなチャットルームを作成 -->
-        <% if @doctor_ids.include?(doctor.id) %>
-          <%= link_to "診察の続き", room_path(current_user.rooms.find_by(doctor_id: doctor.id)) %>
-        <% else %>
-          <%= form_for Room.new do |f| %>
-            <%= f.hidden_field :doctor_id, :value => doctor.id %>
-            <%= f.submit :診察してもらう%>
-          <% end %>
-        <% end %>
+          <div class="symptom-button">
+            <% if @doctor_ids.include?(doctor.id) %>
+              <%= link_to "診察の続き", room_path(current_user.rooms.find_by(doctor_id: doctor.id)) , class: "symptom-btn"%>
+            <% else %>
+              <%= form_for Room.new do |f| %>
+                <%= f.hidden_field :doctor_id, :value => doctor.id %>
+                <%= f.submit :新規診察, class: "new-symptom-btn"%>
+              <% end %>
+            <% end %>
+          </div>
         </div>
     <% end %>
   </div>
