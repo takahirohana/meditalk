@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :rooms, only: [:index,:new, :create,:show] do
     resources :messages, only: [:index, :create]
   end
-  resources :symptoms, only: [:new, :create] 
+  resources :symptoms, only: [:edit,:update] 
   resources :doctors, only: [:index, :new, :show, :edit, :create] do
     resources :ratings, only: [:index, :create]
   end

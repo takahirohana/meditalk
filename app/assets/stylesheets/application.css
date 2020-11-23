@@ -17,3 +17,7 @@
 * {
   box-sizing: border-box;
 }
+
+.profile_image {
+  border-radius: 50%;
+}

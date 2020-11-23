@@ -1,12 +1,12 @@
 <%= render "shared/second-header"%>
 
 <div class='symptoms-form'>
-  <div class="symptoms-new">カルテの作成</div>
+  <div class="symptoms-new">カルテの編集</div>
   <%=form_with model: @symptom, local: true do |f|%>
   <%#= form_for @symptom do |f| %>
 
-  <%= render 'shared/error_messages', model: f.object %>
-  <%#= render "devise/shared/error_messages", resource: @symptom %>
+  <%#= render 'shared/error_messages', model: f.object %>
+  <%= render "devise/shared/error_messages", resource: @symptom %>
 
     <div class='symptoms-room-form__field'>
       <div class='symptom-room-form__field--left'>

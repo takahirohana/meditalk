@@ -14,7 +14,16 @@
     <% @doctors.each do |doctor| %>
         <div class="card">
           <%#img src="" alt="画像なし" class="card__img" /%>
-          <%= image_tag "doctor.png", class:"card__imhg"%>
+          
+          <% if doctor.avatar.attached? %>
+            <%= link_to doctor_path(doctor.id) do %>
+              <%= image_tag doctor.avatar, size: '170x200', class:"card__img", alt: 'テスト画像' %>
+            <% end %>
+          <% else %>
+            <%= link_to doctor_path(doctor.id) do %>
+              <%= image_tag "no-image.png", size: '200x200', class:"card__img"%>
+            <% end %>
+          <% end %>
             <div class="card__body">
               <div class="card__title">
                 <%= link_to doctor.name, doctor_path(doctor.id)  %>
@@ -44,11 +53,11 @@
     
       <!-- もしチャットルームがあったらそのチャットページへ。なければ新たなチャットルームを作成 -->
         <% if @doctor_ids.include?(doctor.id) %>
-          <%= link_to "チャットへ", room_path(current_user.rooms.find_by(doctor_id: doctor.id)) %>
+          <%= link_to "診察の続き", room_path(current_user.rooms.find_by(doctor_id: doctor.id)) %>
         <% else %>
           <%= form_for Room.new do |f| %>
             <%= f.hidden_field :doctor_id, :value => doctor.id %>
-            <%= f.submit %>
+            <%= f.submit :診察してもらう%>
           <% end %>
         <% end %>
         </div>

@@ -2,7 +2,11 @@
 <div class="doctor-profire">
   <div class="doctor-header">
     <div class="doctor-image">
-      <%= image_tag "doctor.png", class:"doctor-img"%>
+      <% if @doctor.avatar.attached? %>
+      <%= image_tag @doctor.avatar, size: '260x300' %>
+    <% else %>
+      <%= image_tag "no-image.png", size: '260x300'%>
+    <% end %>
     </div>
     <div class="doctor-info">
       <div class="content average-socre">
@@ -40,7 +44,7 @@
   </div>
   <div class="doctor-talk">
     <div class="doctor-talk-btn">
-    <%= link_to "診察してもらう",room_path , class: "dr-btn" %>
+    <%= link_to "診察してもらう",room_path(@doctor) , class: "dr-btn" %>
     </div>
   </div>
 </div>

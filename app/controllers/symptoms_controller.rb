@@ -1,21 +1,21 @@
 class SymptomsController < ApplicationController
 
-  # def new
-  #   @symptom = Symptom.new
-  # end
+  def edit
+    @symptom = Symptom.find_by(id: params[:id])
+  end
 
-  # def create
-  #   @symptom = Symptom.new(symptom_params)
-  #   if @symptom.save
-  #     redirect_to root_path
-  #   else
-  #     render :new
-  #   end
-  # end
+  def update
+    @symptom = Symptom.find_by(id: params[:id])
+    if current_user.symptom.update(symptom_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
 
-  # private
+  private
 
-  # def symptom_params
-  #   params.require(:symptom).permit(:cc, :from_when, :where, :situation, :ph, :allergies, :medicine).merge(user_id: current_user.id)
-  # end
+  def symptom_params
+    params.require(:symptom).permit(:cc, :from_when, :where, :situation, :ph, :allergies, :medicine)
+  end
 end
