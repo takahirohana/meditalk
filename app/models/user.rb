@@ -9,6 +9,7 @@ class User < ApplicationRecord
     # has_many :messages
     has_one  :symptom
     has_many :ratings, dependent: :destroy
+    has_one_attached :avatar
 
     NAME_REGEX_KANJI = /\A[ぁ-んァ-ン一-龥]+\z/
     NAME_REGEX_KANA = /\A[ァ-ン]+\z/
