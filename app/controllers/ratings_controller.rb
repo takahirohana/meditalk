@@ -3,7 +3,6 @@ class RatingsController < ApplicationController
   def index
     @doctor = Doctor.find(params[:doctor_id])
     @ratings = @doctor.ratings
-
   end
 
   def create
@@ -13,12 +12,12 @@ class RatingsController < ApplicationController
       redirect_to doctor_ratings_path(@rating.doctor)
     else
       @doctor = Doctor.find(params[:doctor_id])
-      render "doctors/show"
+      render 'doctors/show'
     end
   end
-  
 
   private
+
   def rating_params
     params.require(:rating).permit(:doctor_id, :score, :content)
   end

@@ -31,4 +31,3 @@ class DoctorsController < ApplicationController
     params.require(:doctor).permit(:name, :area, :speciality, :word)
   end
 end
-

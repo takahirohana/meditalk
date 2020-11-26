@@ -23,7 +23,7 @@ class MessagesController < ApplicationController
   def create
     @room = Room.find(params[:room_id])
     @message = Message.new(message_params)
-    #メッセージがuserによるものだったらis_user=true, shopによるものだったらis_user=false
+    # メッセージがuserによるものだったらis_user=true, shopによるものだったらis_user=false
     if user_signed_in?
       @message.is_user = true
     elsif doctor_signed_in?
@@ -39,8 +39,8 @@ class MessagesController < ApplicationController
     end
   end
 
-
   private
+
   def message_params
     params.require(:message).permit(:content, :image)
   end
