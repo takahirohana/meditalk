@@ -32,7 +32,7 @@ class MessagesController < ApplicationController
     @message.room_id = @room.id
     if @message.save
       ActionCable.server.broadcast 'message_channel', content: @message
-      redirect_to room_url(@room)
+      
     else
       @messges = @room.messages.includes(:user)
       redirect_to room_url(@room)

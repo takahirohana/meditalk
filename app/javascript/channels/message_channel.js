@@ -39,6 +39,5 @@ consumer.subscriptions.create("MessageChannel", {
     
     messages.scrollTop = messages.scrollHeight;
     // messages.scrollIntoView(false);
-    
   }
 });
