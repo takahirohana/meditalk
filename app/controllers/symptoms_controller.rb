@@ -1,5 +1,4 @@
 class SymptomsController < ApplicationController
-
   def edit
     @symptom = Symptom.find_by(id: params[:id])
   end

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
     # root to:'doctors#index'  
   resources :users, only: [:new, :edit, :update]
-  resources :rooms, only: [:index,:new, :create,:show] do
+  resources :rooms, only: [:create,:show] do
     resources :messages, only: [:index, :create]
   end
   resources :symptoms, only: [:edit,:update] 

@@ -20,30 +20,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
       params[:user][:password_confirmation] = pass
 
     end
-    
-      session["devise.regist_data"] = {user: @user.attributes}
-      session["devise.regist_data"][:user]["password"] = params[:user][:password]
-      @symptom = @user.build_symptom
-    
-    unless @user.valid?
-      render :new and return
-    end
+
+    session['devise.regist_data'] = { user: @user.attributes }
+    session['devise.regist_data'][:user]['password'] = params[:user][:password]
+    @symptom = @user.build_symptom
+
+    render :new and return unless @user.valid?
+
     render :new_symptom
     # super
   end
 
   def create_symptom
-    @user = User.new(session["devise.regist_data"]["user"])
+    @user = User.new(session['devise.regist_data']['user'])
     @symptom = Symptom.new(symptom_params)
-      unless @symptom.valid?
-        render :new_symptom
-      else
-        @user.build_symptom(@symptom.attributes)
-        @user.save
-        session["devise.regist_data"]["user"].clear
-        sign_in(:user, @user)
-        redirect_to root_path
-      end
+    if @symptom.valid?
+      @user.build_symptom(@symptom.attributes)
+      @user.save
+      session['devise.regist_data']['user'].clear
+      sign_in(:user, @user)
+      redirect_to root_path
+    else
+      render :new_symptom
+    end
   end
 
   protected
