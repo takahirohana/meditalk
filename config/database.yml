@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: meditalk_production
-  username: meditalk
-  password: <%= ENV['MEDITALK_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
