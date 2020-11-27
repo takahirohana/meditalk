@@ -44,7 +44,7 @@
   </div>
   <div class="doctor-talk">
     <div class="doctor-talk-btn">
-    <%= link_to "診察してもらう",room_path(current_user.rooms.find_by(doctor_id: @doctor.id)) , class: "dr-btn" %>
+      <%= link_to "診察してもらう",room_path(current_user.rooms.find_by(doctor_id: @doctor.id)) , class: "dr-btn" %>
     </div>
   </div>
 </div>
