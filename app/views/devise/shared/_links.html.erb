@@ -1,9 +1,11 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "ログイン", new_session_path(resource_name) %><br />
+  <div class="sign-up-btn">
+  <%= link_to "ログインページはこちら", new_session_path(resource_name) %><br />
+  </div>
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <div class="signup-btn">
+  <div class="sign-up-btn">
     <%= link_to "新規登録ページ", new_registration_path(resource_name) %><br />
   </div>
   <% end %>
