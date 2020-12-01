@@ -1,34 +1,30 @@
 <%= render "shared/second-header"%>
 
-<div class="symptoms-form">
-  <div class="symptoms-new">Dr情報の作成</div>
+<div class="field-wrap">
+  <div class="sorting">Dr情報の作成</div>
     <%=form_with model: @doctor, local: true do |f|%>
-    <%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    問題なかったら消す
     <%= render 'shared/error_messages', model: f.object %>
-      <%#= render "doctors/shared/error_messages", resource: resource %>
-      問題なかったら消す
       <div class='symptoms-room-form__field'>
-        <div class='symptom-room-form__field--left'>
+        <div class='field'>
           <%= f.label :ドクターネーム , class: 'symptom-room-form__label'%><br />
-          <%= f.text_field :name, class: 'symptom__room_name symptom-form__input', placeholder: '例)田中 太郎'%>
+          <%= f.text_field :name, class: 'symptom__room_name field-dr', placeholder: '例)田中 太郎'%>
         </div>
-        <div class='symptom-room-form__field--left'>
+        <div class='field'>
           <%= f.label :地域, class: 'symptom-room-form__label'%><br />
-          <%= f.text_field :area, class: 'symptom__room_name symptom-form__input', placeholder: '例）東京都 渋谷区'%>
+          <%= f.text_field :area, class: 'symptom__room_name field-dr', placeholder: '例）東京都 渋谷区'%>
         </div>
-        <div class='symptom-room-form__field--left'>
+        <div class='field'>
           <%= f.label :専門, class: 'symptom-room-form__label'%><br />
-          <%= f.text_field :speciality, class: 'symptom__room_name symptom-form__input', placeholder: '例）膝部 肩 スポーツ障害'%>
+          <%= f.text_area :speciality,size: "10x50", class: 'symptom__room_name field-dr-area', placeholder: '例）膝部 肩 スポーツ障害'%>
         </div>
-        <div class='symptom-room-form__field--left'>
+        <div class='field'>
           <%= f.label :一言, class: 'symptom-room-form__label'%><br />
-          <%= f.text_field :word, class: 'symptom__room_name symptom-form__input', placeholder: '例）患者さん目線で治療にあたります。'%>
+          <%= f.text_area :word, size: "10x50" , class: 'symptom__room_name field-dr-area', placeholder: '例）患者さん目線で治療にあたります。'%>
         </div>
         <br>
         <div class="field">
           <%= f.label :メールアドレス %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'symptom__room_name field-dr' , placeholder: '例)abcdefg@gmail.com'%>
         </div>
   
         <div class="field">
@@ -36,21 +32,21 @@
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> 文字以上)</em>
           <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
+          <%= f.password_field :password, autocomplete: "new-password",class: 'symptom__room_name field-dr' , placeholder: '半角英数字6文字以上' %>
         </div>
   
         <div class="field">
           <%= f.label :パスワード確認 %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class: 'symptom__room_name field-dr' , placeholder: '半角英数字6文字以上'%>
         </div>
   
-        <div class='chat-room-form__field'>
-          <div class='chat-room-form__field--left'></div>
-            <div class='chat-room-form__field--right'>
-            <%= f.submit "登録",class: 'chat-room-form__action-btn'%>
+        
+          
+            <div class='field'>
+            <%= f.submit "登録", class: "actions-field-3"%>
             </div>
-          </div>
       </div>
+      
     <% end %>
 
     <%= render "doctors/shared/links" %>

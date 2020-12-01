@@ -95,10 +95,24 @@
   <% end %>
 <!--ログインしてなかったら-->
 <% else %>
-    <h3>ユーザー</h3>
-    <%= link_to "ログイン", new_user_session_path %>
-    <%= link_to "新規登録", new_user_registration_path %>
-    <h3>ドクター</h3>
-    <%= link_to "ログイン", new_doctor_session_path %>
-    <%= link_to "新規登録", new_doctor_registration_path %>
+  <div class="field-wrap">
+    <div class="user-field">
+      <h3 class="sorting">ユーザー用</h3>
+      <div class="field-2">
+        <%= link_to "ログイン", new_user_session_path , class: "actions-field-2"%>
+      </div>
+      <div class="field-2">
+        <%= link_to "新規登録", new_user_registration_path , class: "actions-field-2"%>
+      </div>
+    </div>
+    <div class="user-field">
+      <h3 class="sorting">ドクター用</h3>
+      <div class="field-3">
+        <%= link_to "ログイン", new_doctor_session_path , class: "actions-field-2"%>
+      </div>
+      <div class="field-3">
+        <%= link_to "新規登録", new_doctor_registration_path , class: "actions-field-2"%>
+      </div>
+    </div>
+  </div>
 <% end %>

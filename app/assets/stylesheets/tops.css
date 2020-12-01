@@ -1,0 +1,35 @@
+.sorting {
+  font-size: 24px;
+  text-align: center;
+}
+
+.user-field {
+  margin-bottom: 40px;
+}
+.field-2 {
+  width: 280px;
+  height: 48px;
+  font-size: 16px;
+  text-align: center;
+  border: solid grey 1px;
+  margin: 10px 0;
+  background-color: #0096e5;
+  padding: 5px;
+}
+
+.field-3 {
+  width: 280px;
+  height: 48px;
+  font-size: 16px;
+  text-align: center;
+  border: solid grey 1px;
+  margin: 10px 0;
+  background-color:turquoise;
+  padding: 5px;
+}
+
+.actions-field-2 {
+  text-decoration: none;
+  font-size: 23px;
+  color: white;
+}
