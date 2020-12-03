@@ -32,6 +32,7 @@
 .card {
   width: calc((100% -100px) / 2);
   margin-bottom: 40px;
+  padding-left: 30px;
 }
 
 .card a {

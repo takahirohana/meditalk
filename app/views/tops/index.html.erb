@@ -17,7 +17,7 @@
           
           <% if doctor.avatar.attached? %>
             <%= link_to doctor_path(doctor.id) do %>
-              <%= image_tag doctor.avatar, size: '170x200', class:"card__img", alt: 'テスト画像' %>
+              <%= image_tag doctor.avatar, size: '180x200', class:"card__img", alt: 'テスト画像' %>
             <% end %>
           <% else %>
             <%= link_to doctor_path(doctor.id) do %>
@@ -72,27 +72,44 @@
   
   <div class="page-heading">
     <div class="header-btn-1">
-  ~<%= current_doctor.name %>Drがログインしてます~
-  </div>
+      ~<%= current_doctor.name %>Drがログインしてます~
+    </div>
     <div class="header-btn-2">
-  <%= link_to "ログアウト", destroy_doctor_session_path , :method => :delete %>
-  <br>
-  </div>
+      <%= link_to "ログアウト", destroy_doctor_session_path , :method => :delete %><br>
+    </div>
   </div>
   <h2 class="top-header">ユーザー一覧</h2>
-  <% @users.each do |user| %>
-    <%= user.nickname %>
-    <!--もしチャットルームがあったらそのチャットページへ。なければ新たなチャットルームを作成-->
-    <% if @user_ids.include?(user.id) %>
-      <br>
-      <%= link_to "チャットへ", room_path(current_doctor.rooms.find_by(user_id: user.id)) %><br>
-    <% else %>
-      <%= form_for Room.new do |f| %>
-        <%= f.hidden_field :user_id, :value => user.id %>
-        <%= f.submit "新しいチャットを作る"%>
+  <div class="card__wrapper">
+    <% @users.each do |user| %>
+      <div class="card">
+      <% if user.avatar.attached? %>
+        <%= link_to doctor_path(user.id) do %>
+          <%= image_tag user.avatar, size: '190x200', class:"card__img", alt: 'テスト画像' %>
+        <% end %>
+      <% else %>
+        
+          <%= image_tag "no-image.png", size: '200x200', class:"card__img"%>
+        
       <% end %>
+        <div class="card__body">
+          <div class="card__title">
+            <%= user.nickname %>さん
+          </div>
+        </div>
+        <!--もしチャットルームがあったらそのチャットページへ。なければ新たなチャットルームを作成-->
+        <div class="room-button">
+          <% if @user_ids.include?(user.id) %>
+          <%= link_to "診察の続き", room_path(current_doctor.rooms.find_by(user_id: user.id)) , class: "room-btn"%><br>
+        <%# else %>
+          <%#= form_for Room.new do |f| %>
+            <%#= f.hidden_field :user_id, :value => user.id %>
+            <%#= f.submit "新しいチャットを作る"%>
+          <%# end %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-  <% end %>
+  </div>
 <!--ログインしてなかったら-->
 <% else %>
   <div class="field-wrap">
