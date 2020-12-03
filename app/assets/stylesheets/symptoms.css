@@ -1,5 +1,6 @@
 .symptom-form__input {
   width: 600px;
+  height: 56px;
 }
 
 .side-symptom-create {
@@ -40,4 +41,18 @@
 .detail-value {
   color: dimgray;
   padding: 10px;
+}
+
+.symptom-room-form__label{
+  font-size: large;
+}
+
+.chat-room-form__field {
+  margin-top: 25px;
+}
+
+.chat-room-form__action-btn {
+  width: 600px;
+  height: 65px;
+  font-size: 20px;
 }

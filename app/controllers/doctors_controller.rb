@@ -19,6 +19,11 @@ class DoctorsController < ApplicationController
 
   def show
     @doctor = Doctor.find(params[:id])
+    rooms = current_user.rooms
+    @doctor_ids = []
+    rooms.each do |r|
+      @doctor_ids << r.doctor_id
+    end
     @rating = Rating.new
   end
 

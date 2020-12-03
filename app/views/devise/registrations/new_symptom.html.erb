@@ -1,7 +1,7 @@
 <%= render "shared/second-header"%>
 
-<div class='symptoms-form'>
-  <div class="symptoms-new">カルテの作成</div>
+<div class='field-wrap'>
+  <div class="sorting">カルテの作成</div>
   <%=form_with model: @symptom, local: true do |f|%>
   <%#= form_for @symptom do |f| %>
 
@@ -13,47 +13,47 @@
         <%= f.label :主訴, class: 'symptom-room-form__label'%>
       </div>
       <div class='symptom-room-form__field--right'>
-        <%= f.text_field :cc, class: 'symptom__room_name symptom-form__input', placeholder: '症状を書いて下さい'%>
+        <%= f.text_area :cc, class: 'symptom__room_name symptom-form__input', placeholder: '症状を書いて下さい'%>
       </div>
       <div class='symptom-room-form__field--left'>
         <%= f.label :いつ頃から, class: 'symptom-room-form__label'%>
       </div>
       <div class='symptom-form__field--right'>
-        <%= f.text_field :from_when, class: 'symptom__room_name symptom-form__input', placeholder: '例）今年の１月頃から等。'%>
+        <%= f.text_area :from_when, class: 'symptom__room_name symptom-form__input', placeholder: '例）今年の１月頃から等。'%>
       </div>
       <div class='symptom-room-form__field--left'>
         <%= f.label :どこで, class: 'symptom-room-form__label'%>
       </div>
       <div class='symptom-form__field--right'>
-        <%= f.text_field :where, class: 'symptom__room_name symptom-form__input', placeholder: '例）自宅、会社、等わからない場合は不明と記入して下さい。'%>
+        <%= f.text_area :where, class: 'symptom__room_name symptom-form__input', placeholder: '例）自宅、会社、等わからない場合は不明と記入して下さい。'%>
       </div>
       <div class='symptom-room-form__field--left'>
         <%= f.label :状況, class: 'symptom-room-form__label'%>
       </div>
       <div class='symptom-form__field--right'>
-        <%= f.text_field :situation, class: 'symptom__room_name symptom-form__input', placeholder: '例）転んで手をついた等。原因無い場合は不明と記入してください。'%>
+        <%= f.text_area :situation, class: 'symptom__room_name symptom-form__input', placeholder: '例）転んで手をついた等。原因無い場合は不明と記入してください。'%>
       </div>
       <div class='symptom-room-form__field--left'>
         <%= f.label :既往歴, class: 'symptom-room-form__label'%>
       </div>
       <div class='symptom-form__field--right'>
-        <%= f.text_field :ph, class: 'symptom__room_name symptom-form__input', placeholder: '現在,もしくは過去の大きな怪我、病気などあれば書き込んで下さい。無い場合は無しと記入して下さい。'%>
+        <%= f.text_area :ph, class: 'symptom__room_name symptom-form__input', placeholder: '現在,もしくは過去の大きな怪我、病気などあれば書き込んで下さい。無い場合は無しと記入して下さい。'%>
       </div>
       <div class='symptom-room-form__field--left'>
         <%= f.label :アレルギー, class: 'symptom-room-form__label'%>
       </div>
       <div class='symptom-form__field--right'>
-        <%= f.text_field :allergies, class: 'symptom__room_name symptom-form__input', placeholder: '薬や食品のアレルギーがあれば教えて下さい。無い場合は無しと記入して下さい。'%>
+        <%= f.text_area :allergies, class: 'symptom__room_name symptom-form__input', placeholder: '薬や食品のアレルギーがあれば教えて下さい。無い場合は無しと記入して下さい。'%>
       </div>
       <div class='symptom-room-form__field--left'>
         <%= f.label :薬, class: 'symptom-room-form__label'%>
       </div>
       <div class='symptom-form__field--right'>
-        <%= f.text_field :medicine, class: 'symptom__room_name symptom-form__input', placeholder: '現在飲んでいるお薬あれば教えて下さい。無い場合は無しと記入して下さい。'%>
+        <%= f.text_area :medicine, class: 'symptom__room_name symptom-form__input', placeholder: '現在飲んでいるお薬あれば教えて下さい。無い場合は無しと記入して下さい。'%>
       </div>
     </div>
     <div class='chat-room-form__field'>
-      <div class='chat-room-form__field--left'></div>
+      
       <div class='chat-room-form__field--right'>
         <%= f.submit "登録",class: 'chat-room-form__action-btn'%>
       </div>

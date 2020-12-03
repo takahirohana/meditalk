@@ -43,8 +43,13 @@
     </ul>
   </div>
   <div class="doctor-talk">
-    <div class="doctor-talk-btn">
-      <%= link_to "診察してもらう",room_path(current_user.rooms.find_by(doctor_id: @doctor.id)) , class: "dr-btn" %>
-    </div>
+    <% if @doctor_ids.include?(@doctor.id) %>
+      <%= link_to "診察の続き", room_path(current_user.rooms.find_by(doctor_id: @doctor.id)) , class: "symptom-btn"%>
+    <% else %>
+      <%= form_for Room.new do |f| %>
+        <%= f.hidden_field :doctor_id, :value => @doctor.id %>
+        <%= f.submit :新規診察, class: "new-symptom-btn"%>
+      <% end %>
+    <% end %>
   </div>
 </div>
