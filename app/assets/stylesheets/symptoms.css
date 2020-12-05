@@ -1,6 +1,7 @@
 .symptom-form__input {
   width: 600px;
   height: 56px;
+  padding-left: 10px;
 }
 
 .side-symptom-create {
