@@ -1,4 +1,6 @@
 <%= render "shared/second-header"%>
+<div class='account-page' id='account-page'>
+<div class="field-wrap">
 <h2> <%= resource_name.to_s.humanize %>情報編集</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -41,5 +43,8 @@
     <%= f.submit "アップデート" %>
   </div>
 <% end %>
-
-<%= link_to "戻る", :back %>
+<div class="back-btn">
+<%= link_to "チャットページへ戻る", :back ,class: 'btn'%>
+</div>
+</div>
+</div>
