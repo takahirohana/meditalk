@@ -6,7 +6,7 @@
       ~<%= current_user.nickname %>がログインしてます~
     </div>
     <div class="header-btn-2">
-      <%= link_to "ログアウト", destroy_user_session_path ,:method => :delete %>
+      <%= link_to "ログアウト", destroy_user_session_path ,:method => :delete ,class: "out-btn"%>
     </div>
   </div>
   <h1 class="top-header">Dr一覧</h1>
